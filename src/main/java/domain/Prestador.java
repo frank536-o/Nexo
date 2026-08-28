@@ -7,8 +7,7 @@ public class Prestador extends Usuario {
     private String descripPerfil;
     private Integer serviciosRealizados;
 
-    //constructores
-
+    //Constructores
 
     public Prestador(int id, String docType, String name, String lasName, String phone,
                      String email, String address, String password, Date birthdate,

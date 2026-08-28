@@ -12,4 +12,15 @@ public class Pago {
     private Reserva reserva;
     private Billetera billetera;
 
+    // Constructores
+    public Pago(Integer idPago, Double montoPago, Date fechaPago, String metodoPago,
+                String estadoPago, Reserva reserva, Billetera billetera) {
+        this.idPago = idPago;
+        this.montoPago = montoPago;
+        this.fechaPago = fechaPago;
+        this.metodoPago = metodoPago;
+        this.estadoPago = estadoPago;
+        this.reserva = reserva;
+        this.billetera = billetera;
+    }
 }

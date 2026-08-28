@@ -11,7 +11,14 @@ public class Calificacion {
     private Reserva reserva;
     private Usuario usuario;
 
-
-
-
+    // Constructores
+    public Calificacion(Integer idCalifiacion, Double puntCalificacion, String comentCalificacion,
+                        Date fechaCalificacion, Reserva reserva, Usuario usuario) {
+        this.idCalifiacion = idCalifiacion;
+        this.puntCalificacion = puntCalificacion;
+        this.comentCalificacion = comentCalificacion;
+        this.fechaCalificacion = fechaCalificacion;
+        this.reserva = reserva;
+        this.usuario = usuario;
+    }
 }
