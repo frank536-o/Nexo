@@ -23,4 +23,61 @@ public class Pago {
         this.reserva = reserva;
         this.billetera = billetera;
     }
+    //Getter and setter
+
+    public Integer getIdPago() {
+        return idPago;
+    }
+
+    public void setIdPago(Integer idPago) {
+        this.idPago = idPago;
+    }
+
+    public Double getMontoPago() {
+        return montoPago;
+    }
+
+    public void setMontoPago(Double montoPago) {
+        this.montoPago = montoPago;
+    }
+
+    public Date getFechaPago() {
+        return fechaPago;
+    }
+
+    public void setFechaPago(Date fechaPago) {
+        this.fechaPago = fechaPago;
+    }
+
+    public String getMetodoPago() {
+        return metodoPago;
+    }
+
+    public void setMetodoPago(String metodoPago) {
+        this.metodoPago = metodoPago;
+    }
+
+    public String getEstadoPago() {
+        return estadoPago;
+    }
+
+    public void setEstadoPago(String estadoPago) {
+        this.estadoPago = estadoPago;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public Billetera getBilletera() {
+        return billetera;
+    }
+
+    public void setBilletera(Billetera billetera) {
+        this.billetera = billetera;
+    }
 }

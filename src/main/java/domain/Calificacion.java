@@ -21,4 +21,53 @@ public class Calificacion {
         this.reserva = reserva;
         this.usuario = usuario;
     }
+    //Getter and setter
+
+    public Integer getIdCalifiacion() {
+        return idCalifiacion;
+    }
+
+    public void setIdCalifiacion(Integer idCalifiacion) {
+        this.idCalifiacion = idCalifiacion;
+    }
+
+    public Double getPuntCalificacion() {
+        return puntCalificacion;
+    }
+
+    public void setPuntCalificacion(Double puntCalificacion) {
+        this.puntCalificacion = puntCalificacion;
+    }
+
+    public String getComentCalificacion() {
+        return comentCalificacion;
+    }
+
+    public void setComentCalificacion(String comentCalificacion) {
+        this.comentCalificacion = comentCalificacion;
+    }
+
+    public Date getFechaCalificacion() {
+        return fechaCalificacion;
+    }
+
+    public void setFechaCalificacion(Date fechaCalificacion) {
+        this.fechaCalificacion = fechaCalificacion;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
