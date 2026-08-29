@@ -29,4 +29,27 @@ public class Billetera {
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
+
+    // Metodo vacio sin argumentos
+
+    public void createBilletera(){
+
+    }
+    // Metodo vacio con argumentos
+
+    public void selectBilleteranById(int id){
+
+    }
+
+    public void selectAllBilletera(){
+
+    }
+
+    public void updateBilletera(){
+
+    }
+
+    public void deleteBilletera(int id){
+
+    }
 }

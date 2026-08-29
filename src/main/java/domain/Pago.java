@@ -80,4 +80,27 @@ public class Pago {
     public void setBilletera(Billetera billetera) {
         this.billetera = billetera;
     }
+
+    // Metodo vacio sin argumentos
+
+    public void createPago(){
+
+    }
+    // Metodo vacio con argumentos
+
+    public void selectPagoById(int id){
+
+    }
+
+    public void selectAllPago(){
+
+    }
+
+    public void updatePago(){
+
+    }
+
+    public void deletePago(int id){
+
+    }
 }

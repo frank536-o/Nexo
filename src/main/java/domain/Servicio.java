@@ -59,4 +59,27 @@ public class Servicio {
     public void setPrestador(Prestador prestador) {
         this.prestador = prestador;
     }
+
+    // Metodo vacio sin argumentos
+
+    public void createServicio(){
+
+    }
+    // Metodo vacio con argumentos
+
+    public void selectServicioById(int id){
+
+    }
+
+    public void selectAllServicio(){
+
+    }
+
+    public void updateServicio(){
+
+    }
+
+    public void deleteServicio(int id){
+
+    }
 }

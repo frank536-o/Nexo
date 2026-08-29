@@ -70,4 +70,27 @@ public class Calificacion {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    // Metodo vacio sin argumentos
+
+    public void createCalificacion(){
+
+    }
+    // Metodo vacio con argumentos
+
+    public void selectCalificacionById(int id){
+
+    }
+
+    public void selectAllCalificacion(){
+
+    }
+
+    public void updateCalificacion(){
+
+    }
+
+    public void deleteCalificacion(int id){
+
+    }
 }

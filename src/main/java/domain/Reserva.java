@@ -91,4 +91,22 @@ public class Reserva {
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
     }
+
+    // Metodo vacio con argumentos
+
+    public void selectReservaById(int id){
+
+    }
+
+    public void selectAllReserva(){
+
+    }
+
+    public void updateReserva(){
+
+    }
+
+    public void deleteReserva(int id ){
+
+    }
 }
