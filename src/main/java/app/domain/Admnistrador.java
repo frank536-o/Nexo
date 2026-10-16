@@ -7,9 +7,9 @@ public class Admnistrador extends Usuario{
     private String role;
 
     public Admnistrador(int id, String docType, String name, String lasName, String phone,
-                        String email, String address, String password, Date birthdate,
+                        String email, String address, String password, Date birthdate, Billetera billetera,
                         String role) {
-        super(id, docType, name, lasName, phone, email, address, password, birthdate);
+        super(id, docType, name, lasName, phone, email, address, password, birthdate, billetera);
         this.role = role;
     }
 

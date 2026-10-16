@@ -1,4 +1,4 @@
-package app.service.outport;
+package app.service.outputport;
 
 public interface PrestadorRepositoryInterface {
 }

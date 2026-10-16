@@ -7,9 +7,9 @@ public class Cliente extends Usuario{
     private Integer cantServicios;
 
     public Cliente(int id, String docType, String name, String lasName, String phone,
-                   String email, String address, String password, Date birthdate,
+                   String email, String address, String password, Date birthdate, Billetera billetera,
                    Integer cantServicios) {
-        super(id, docType, name, lasName, phone, email, address, password, birthdate);
+        super(id, docType, name, lasName, phone, email, address, password, birthdate, billetera);
         this.cantServicios = cantServicios;
     }
 

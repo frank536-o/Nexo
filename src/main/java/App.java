@@ -1,8 +1,12 @@
+import app.configuration.Config;
+import app.userInterface.UserInterface;
+
 public class App {
-public static void main (String[] args){
+    public static void main(String[] args) {
 
-}
-
+        UserInterface userInterface = Config.createUserInterface();
+        userInterface.menuApp();
 
 
     }
+}

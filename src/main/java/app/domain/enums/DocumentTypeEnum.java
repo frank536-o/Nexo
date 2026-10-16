@@ -6,7 +6,7 @@ public enum DocumentTypeEnum {
     CEDULA_EXTRANJERIA("Cédula de Extranjería"),
     PASAPORTE("Pasaporte");
 
-    private final String value;
+    private String value = "";
 
     DocumentTypeEnum(String Value){this.value = value;}
 

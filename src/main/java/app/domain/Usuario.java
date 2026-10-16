@@ -14,6 +14,8 @@ public class Usuario {
     private String address;
     private String password;
     private Date birthdate ;
+    private Billetera billetera;
+
 
 
     //constructores
@@ -22,8 +24,7 @@ public class Usuario {
 
     }
 
-    public Usuario(int id, String docType, String name, String lasName, String phone,
-                   String email, String address, String password, Date birthdate) {
+    public Usuario(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera) {
         this.id = id;
         this.docType = docType;
         this.name = name;
@@ -33,9 +34,11 @@ public class Usuario {
         this.address = address;
         this.password = password;
         this.birthdate = birthdate;
+        this.billetera = billetera;
     }
 
-    //Getter and Setters
+
+//Getter and Setters
 
     public int getId() {
         return id;
@@ -107,6 +110,14 @@ public class Usuario {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public Billetera getBilletera() {
+        return billetera;
+    }
+
+    public void setBilletera(Billetera billetera) {
+        this.billetera = billetera;
     }
 
 
