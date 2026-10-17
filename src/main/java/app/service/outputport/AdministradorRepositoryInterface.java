@@ -5,7 +5,7 @@ import java.util.List;
 public interface AdministradorRepositoryInterface {
 
 
-    AdministradorRepositoryInterface savePropertyOwner(AdministradorRepositoryInterface administradorRepositoryInterface);
+    AdministradorRepositoryInterface saveAdministrador(AdministradorRepositoryInterface administradorRepositoryInterface);
 
     List<AdministradorRepositoryInterface> selectAllAdministradorRepositoryInterface();
 

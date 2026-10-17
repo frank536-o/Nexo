@@ -11,7 +11,7 @@ public class AdministradorRepositoryImpl implements AdministradorRepositoryInter
 
 
         @Override
-        public AdministradorRepositoryInterface savePropertyOwner(AdministradorRepositoryInterface administradorRepositoryInterface){
+        public AdministradorRepositoryInterface saveAdministrador(AdministradorRepositoryInterface administradorRepositoryInterface){
 
             owners.add(administradorRepositoryInterface);
 
