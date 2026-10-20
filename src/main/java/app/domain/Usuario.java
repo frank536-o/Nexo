@@ -8,7 +8,7 @@ public class Usuario {
     private int id;
     private String docType;
     private String name;
-    private String lasName;
+    private String lastName;
     private String phone;
     private String email;
     private String address;
@@ -24,11 +24,11 @@ public class Usuario {
 
     }
 
-    public Usuario(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera) {
+    public Usuario(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera) {
         this.id = id;
         this.docType = docType;
         this.name = name;
-        this.lasName = lasName;
+        this.lastName = lastName;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -64,12 +64,12 @@ public class Usuario {
         this.name = name;
     }
 
-    public String getLasName() {
-        return lasName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasName(String lasName) {
-        this.lasName = lasName;
+    public void setLastName(String lasName) {
+        this.lastName = lasName;
     }
 
     public String getPhone() {

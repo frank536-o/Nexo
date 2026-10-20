@@ -18,4 +18,6 @@ public interface AdministradorService {
                                             String email, String address, String password, Date birthdate, Billetera billetera,
                                             String role);
     public void deletedAdministradorById(int id);
+
+    void createAdministrador(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthDate);
 }
