@@ -1,7 +1,6 @@
 package app.domain;
 
 import java.util.Date;
-
 public class Usuario {
 
     //atributos
@@ -15,16 +14,11 @@ public class Usuario {
     private String password;
     private Date birthdate ;
     private Billetera billetera;
+    private String role;
 
-
-
-    //constructores
-
-    public Usuario(){
-
-    }
-
-    public Usuario(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera) {
+//constructores
+    public Usuario(int id, String docType, String name, String lastName, String phone, String email, String address, String password,
+                   Date birthdate, Billetera billetera, String role) {
         this.id = id;
         this.docType = docType;
         this.name = name;
@@ -35,6 +29,7 @@ public class Usuario {
         this.password = password;
         this.birthdate = birthdate;
         this.billetera = billetera;
+        this.role = role;
     }
 
 
@@ -78,6 +73,14 @@ public class Usuario {
 
     public void setPhone(String phone) {
         this.phone = phone;
+
+    }
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getEmail() {
@@ -126,6 +129,12 @@ public class Usuario {
     public void create(){
 
     }
+    public void selectAll(){
+
+    }
+    public void update(){
+
+    }
 
     //metodo vacio con argementos
 
@@ -133,19 +142,8 @@ public class Usuario {
 
     }
 
-
-    public void selectAll(){
-
-    }
-
-    public void update(){
-
-    }
-
     public void delete(int id ){
 
     }
-
-
 
 }

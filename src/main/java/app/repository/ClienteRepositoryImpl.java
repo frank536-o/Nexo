@@ -1,41 +1,40 @@
 package app.repository;
 
+import app.domain.Cliente;
 import app.service.outputport.ClienteRepositoryInterface;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteRepositoryImpl implements ClienteRepositoryInterface {
-    List<ClienteRepositoryInterface> owners = new ArrayList<>();
+public class ClienteRepositoryImpl implements ClienteRepositoryInterface{
+
+    List<Cliente> clientes = new ArrayList<>();
 
 
     @Override
-    public ClienteRepositoryInterface saveCliente(ClienteRepositoryInterface clienteRepositoryInterface){
-
-        owners.add(clienteRepositoryInterface);
-
-        return clienteRepositoryInterface;
+    public Cliente saveCliente(Cliente cliente){
+        clientes.add(cliente);
+        return cliente;
     }
 
 
     @Override
-    public List<ClienteRepositoryInterface> selectAllClienteRepositoryInterface() {
-
-        return owners;
+    public List<Cliente> selectAllCliente() {
+        return clientes;
     }
 
     @Override
-    public ClienteRepositoryInterface selectClienteRepositoryInterfaceById(int id) {
+    public Cliente selectClienteById(int id) {
+        return clientes.get(id);
+    }
+
+    @Override
+    public Cliente updateCliente(Cliente cliente) {
         return null;
     }
 
     @Override
-    public ClienteRepositoryInterface updateClienteRepositoryInterface(ClienteRepositoryInterface clienteRepositoryInterface) {
-        return null;
-    }
-
-    @Override
-    public void deletedAClienteRepositoryInterface(int id) {
-
+    public void deleteCliente(int id) {
+        clientes.remove(id);
     }
 }

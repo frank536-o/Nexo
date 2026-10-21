@@ -3,15 +3,17 @@ package app.domain;
 public class Billetera {
 
     private Integer idBilletera;
+    private Integer idOwner;
     private Double saldo;
 
     // Constructores
 
-    public Billetera(Integer idBilletera, Double saldo) {
+    public Billetera(Integer idBilletera, Integer idOwner, Double saldo) {
         this.idBilletera = idBilletera;
+        this.idOwner = idOwner;
         this.saldo = saldo;
-
     }
+
     //Getter and setter
 
     public Integer getIdBilletera() {
@@ -20,6 +22,14 @@ public class Billetera {
 
     public void setIdBilletera(Integer idBilletera) {
         this.idBilletera = idBilletera;
+    }
+
+    public Integer getIdOwner() {
+        return idOwner;
+    }
+
+    public void setIdOwner(Integer idOwner) {
+        this.idOwner = idOwner;
     }
 
     public Double getSaldo() {

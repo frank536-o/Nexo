@@ -1,15 +1,17 @@
 package app.service.outputport;
 
+import app.domain.Cliente;
+
 import java.util.List;
 
 public interface ClienteRepositoryInterface {
-    ClienteRepositoryInterface saveCliente(ClienteRepositoryInterface clienteRepositoryInterface);
+    Cliente saveCliente(Cliente cliente);
 
-    List<ClienteRepositoryInterface> selectAllClienteRepositoryInterface();
+    List<Cliente> selectAllCliente();
 
-    ClienteRepositoryInterface selectClienteRepositoryInterfaceById(int id);
+    Cliente selectClienteById(int id);
 
-    ClienteRepositoryInterface updateClienteRepositoryInterface(ClienteRepositoryInterface clienteRepositoryInterface);
+    Cliente updateCliente(Cliente cliente);
 
-    void deletedAClienteRepositoryInterface(int id);
+    void deleteCliente(int id);
 }

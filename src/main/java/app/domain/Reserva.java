@@ -43,7 +43,6 @@ public class Reserva {
     public void setFechaSolicitudReserva(Date fechaSolicitudReserva) {
         this.fechaSolicitudReserva = fechaSolicitudReserva;
     }
-
     public Date getFechaRserva() {
         return fechaRserva;
     }

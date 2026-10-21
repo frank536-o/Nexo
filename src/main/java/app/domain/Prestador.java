@@ -10,9 +10,9 @@ public class Prestador extends Usuario {
     //Constructores
 
     public Prestador(int id, String docType, String name, String lasName, String phone,
-                     String email, String address, String password, Date birthdate, Billetera billetera,
+                     String email, String address, String password, Date birthdate, Billetera billetera, String role,
                      String descripPerfil, Integer serviciosRealizados) {
-        super(id, docType, name, lasName, phone, email, address, password, birthdate, billetera);
+        super(id, docType, name, lasName, phone, email, address, password, birthdate, billetera, role);
         this.descripPerfil = descripPerfil;
         this.serviciosRealizados = serviciosRealizados;
 
