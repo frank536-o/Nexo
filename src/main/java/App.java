@@ -1,3 +1,4 @@
+package app;
 import app.configuration.Config;
 import app.userInterface.UserInterface;
 
@@ -9,3 +10,5 @@ public class App {
         userInterface.menuApp();
     }
 }
+
+

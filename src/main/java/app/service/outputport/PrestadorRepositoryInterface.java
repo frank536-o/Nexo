@@ -1,15 +1,22 @@
 package app.service.outputport;
 
+import app.domain.Billetera;
+import app.domain.Prestador;
+
+import java.util.Date;
 import java.util.List;
 
 public interface PrestadorRepositoryInterface {
-    PrestadorRepositoryInterface savePrestador(PrestadorRepositoryInterface prestadorRepositoryInterface);
 
-    List<PrestadorRepositoryInterface> selectAllPrestadorRepositoryInterface();
+    Prestador savePrestador(Prestador prestador);
 
-    PrestadorRepositoryInterface selectPrestadorRepositoryInterfaceById(int id);
+    List<Prestador> selectAllPrestador();
 
-    PrestadorRepositoryInterface updatePrestadorRepositoryInterface(PrestadorRepositoryInterface prestadorRepositoryInterface);
+    Prestador selectPrestadorById(int id);
 
-    void deletedPrestadorRepositoryInterface(int id);
+    Prestador updatePrestador(int id, String docType, String name, String lastName, String phone,
+                                                                    String email, String address, String password, Date birthdate, Billetera billetera, String role,
+                                                                    String descripPerfil, Integer serviciosRealizados);
+
+    void deletePrestador(int id);
 }

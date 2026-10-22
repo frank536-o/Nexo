@@ -19,20 +19,23 @@ public class PrestadorView {
     }
     public void crearUsuarioPrestador() {
 
-        int id = FormTypeValidator.intValidator("Ingrese el id del Prestado");
+        int id = FormTypeValidator.intValidator("Ingrese el id del Prestador");
         String docType = SetDocumentType.getDocType();
-        String name = FormTypeValidator.stringValidator("Ingrese el nombre del Prestado");
-        String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Prestado");
-        String phone = FormTypeValidator.stringValidator("Ingrese el telefono del Prestado");
-        String email = FormTypeValidator.stringValidator("Ingrese el correo del Prestado");
-        String address = FormTypeValidator.stringValidator("Ingrese la dirección del Prestado");
-        String password = FormTypeValidator.stringValidator("Ingrese la contraseña del Prestado");
+        String name = FormTypeValidator.stringValidator("Ingrese el nombre del Prestador");
+        String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Prestador");
+        String phone = FormTypeValidator.stringValidator("Ingrese el telefono del Prestador");
+        String email = FormTypeValidator.stringValidator("Ingrese el correo del Prestador");
+        String address = FormTypeValidator.stringValidator("Ingrese la dirección del Prestador");
+        String password = FormTypeValidator.stringValidator("Ingrese la contraseña del Prestador");
         Date birthDate = getBirthDateFromInput();
         String role = "PRESTADOR";
+        String descripPerfil = FormTypeValidator.stringValidator("Ingrese la descripcion del Prestador");
         Billetera billetera = billeteraService.createBilletera(1, id, 0.0);
 
+
         prestadorService.createPrestador(id, docType, name, lastName, phone,
-                email, address, password, birthDate, billetera, role,0);
+                email, address, password, birthDate, billetera, role,
+                descripPerfil, 0);
     }
 
     public void iniciarSesionPrestador(){}

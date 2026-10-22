@@ -17,8 +17,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente createCliente(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, String role, Integer cantServicios) {
-        Cliente nuevoCliente= new Cliente(id, docType, name, lasName, phone, email, address, password, birthdate, billetera, role, cantServicios);
+    public Cliente createCliente(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, String role, Integer cantServicios) {
+        Cliente nuevoCliente= new Cliente(id, docType, name, lastName, phone, email, address, password, birthdate, billetera, role, cantServicios);
         return clienteRepositoryInterface.saveCliente(nuevoCliente);
     }
 
@@ -33,8 +33,8 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente updateCliente(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
-        return clienteRepositoryInterface.updateCliente(id, docType,name, lasName,phone,email,address,password,birthdate,billetera,cantServicios);
+    public Cliente updateCliente(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
+        return clienteRepositoryInterface.updateCliente(id, docType,name, lastName,phone,email,address,password,birthdate,billetera,cantServicios);
     }
 
     @Override

@@ -9,10 +9,10 @@ public class Prestador extends Usuario {
 
     //Constructores
 
-    public Prestador(int id, String docType, String name, String lasName, String phone,
+    public Prestador(int id, String docType, String name, String lastName, String phone,
                      String email, String address, String password, Date birthdate, Billetera billetera, String role,
                      String descripPerfil, Integer serviciosRealizados) {
-        super(id, docType, name, lasName, phone, email, address, password, birthdate, billetera, role);
+        super(id, docType, name, lastName, phone, email, address, password, birthdate, billetera, role);
         this.descripPerfil = descripPerfil;
         this.serviciosRealizados = serviciosRealizados;
 
@@ -62,4 +62,5 @@ public class Prestador extends Usuario {
     public void delete(int id) {
         super.delete(id);
     }
+
 }

@@ -1,41 +1,43 @@
 package app.repository;
 
+import app.domain.Billetera;
+import app.domain.Prestador;
 import app.service.outputport.PrestadorRepositoryInterface;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class PrestadorRepositoryImpl implements PrestadorRepositoryInterface {
-    List<PrestadorRepositoryInterface> owners = new ArrayList<>();
+
+    private final List<Prestador> prestadores = new ArrayList<>();
 
 
     @Override
-    public PrestadorRepositoryInterface savePrestador(PrestadorRepositoryInterface prestadorRepositoryInterface){
-
-        owners.add(prestadorRepositoryInterface);
-
-        return prestadorRepositoryInterface;
+    public Prestador savePrestador(Prestador prestador){
+        prestadores.add(prestador);
+        return prestador;
     }
 
 
     @Override
-    public List<PrestadorRepositoryInterface> selectAllPrestadorRepositoryInterface() {
+    public List<Prestador> selectAllPrestador() {return prestadores;}
 
-        return owners;
+    @Override
+    public Prestador selectPrestadorById(int id) {
+        return prestadores.get(id);
     }
 
     @Override
-    public PrestadorRepositoryInterface selectPrestadorRepositoryInterfaceById(int id) {
+    public Prestador updatePrestador(int id, String docType, String name, String lastName, String phone,
+                                     String email, String address, String password, Date birthdate, Billetera billetera, String role,
+                                     String descripPerfil, Integer serviciosRealizados) {
         return null;
     }
 
     @Override
-    public PrestadorRepositoryInterface updatePrestadorRepositoryInterface(PrestadorRepositoryInterface prestadorRepositoryInterface) {
-        return null;
-    }
-
-    @Override
-    public void deletedPrestadorRepositoryInterface(int id) {
+    public void deletePrestador(int id) {
 
     }
 

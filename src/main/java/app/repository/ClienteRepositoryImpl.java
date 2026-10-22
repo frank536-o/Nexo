@@ -31,7 +31,7 @@ public class ClienteRepositoryImpl implements ClienteRepositoryInterface{
     }
 
     @Override
-    public Cliente updateCliente(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
+    public Cliente updateCliente(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
         return null;
     }
 
