@@ -58,7 +58,7 @@ public class FormTypeValidator {
 
             String value = sc.nextLine().trim();
 
-            if (value.isEmpty()){
+            if (!value.isEmpty()){
                 return value;
             }
             System.out.println("El valor no puede estar vacio");

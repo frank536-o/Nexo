@@ -5,11 +5,11 @@ import app.service.Validations.FormTypeValidator;
 
 public class SetDocumentType {
     public static String getDocType(){
-        int option = FormTypeValidator.intValidator("seleccione"+
-                "1.Cédula"+
-                "2. Tarjeta de Identidad"+
-                "3.Cédula de Extrajeria"+
-                "4. Pasaporte");
+        int option = FormTypeValidator.intValidator("seleccione tipo de documento: \n"+
+                "1. Cédula \n"+
+                "2. Tarjeta de Identidad \n"+
+                "3. Cédula de Extrajeria \n"+
+                "4. Pasaporte \n");
         String value = "";
         switch (option){
             case 1:

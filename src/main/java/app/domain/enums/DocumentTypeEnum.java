@@ -1,9 +1,12 @@
 package app.domain.enums;
 
 public enum DocumentTypeEnum {
-    CEDULA_CIUDADANIA("Cédula"),
+    CEDULA_CIUDADANIA("Cédula" ),
+
     TARJETA_IDENTIDAD("Tarjeta de Identidad "),
+
     CEDULA_EXTRANJERIA("Cédula de Extranjería"),
+
     PASAPORTE("Pasaporte");
 
 
@@ -16,5 +19,7 @@ public enum DocumentTypeEnum {
     public String getValue() {
         return value;
     }
+
+
 
 }

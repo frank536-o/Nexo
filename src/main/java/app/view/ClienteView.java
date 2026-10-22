@@ -21,8 +21,8 @@ public class ClienteView {
 
     public void crearUsuarioCliente() {
 
-        int id = FormTypeValidator.intValidator("Ingrese el id del Cliente");
         String docType = SetDocumentType.getDocType();
+        int id = FormTypeValidator.intValidator("Ingrese el id del Cliente");
         String name = FormTypeValidator.stringValidator("Ingrese el nombre del Cliente");
         String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Cliente");
         String phone = FormTypeValidator.stringValidator("Ingrese el telefono del Cliente");
@@ -55,8 +55,6 @@ public class ClienteView {
     }
 
     public void showAllClientes(){
-
-
 
         List<Cliente> clientes = clienteService.selectAllCliente();
 

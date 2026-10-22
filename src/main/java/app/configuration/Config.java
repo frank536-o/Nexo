@@ -13,7 +13,7 @@ import app.view.ClienteView;
 public class Config {
     public static UserInterface createUserInterface() {
         ClienteRepositoryInterface clienteRepositoryInterface = new ClienteRepositoryImpl();
-        ClienteService clienteService = new ClienteServiceImpl();
+        ClienteService clienteService = new ClienteServiceImpl(clienteRepositoryInterface);
         BilleteraService billeteraService =new BilleteraServiceImpl();
         ClienteView clienteView = new ClienteView(clienteService, billeteraService);
         return new UserInterface(clienteView);

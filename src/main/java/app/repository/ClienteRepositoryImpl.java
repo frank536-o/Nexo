@@ -1,14 +1,16 @@
 package app.repository;
 
+import app.domain.Billetera;
 import app.domain.Cliente;
 import app.service.outputport.ClienteRepositoryInterface;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ClienteRepositoryImpl implements ClienteRepositoryInterface{
 
-    List<Cliente> clientes = new ArrayList<>();
+    private final List<Cliente> clientes = new ArrayList<>();
 
 
     @Override
@@ -29,7 +31,7 @@ public class ClienteRepositoryImpl implements ClienteRepositoryInterface{
     }
 
     @Override
-    public Cliente updateCliente(Cliente cliente) {
+    public Cliente updateCliente(int id, String docType, String name, String lasName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
         return null;
     }
 
