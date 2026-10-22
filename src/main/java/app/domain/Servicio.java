@@ -4,18 +4,18 @@ public class Servicio {
 
     private Integer idServicio;
     private String nombreServicio;
-    private String descripServcio;
+    private String descripServicio;
     private Double precioServicio;
     private Prestador prestador;
 
 
     // Constructores
 
-    public Servicio(Integer idServicio, String nombreServicio, String descripServcio,
+    public Servicio(Integer idServicio, String nombreServicio, String descripServicio,
                     Double precioServicio, Prestador prestador) {
         this.idServicio = idServicio;
         this.nombreServicio = nombreServicio;
-        this.descripServcio = descripServcio;
+        this.descripServicio = descripServicio;
         this.precioServicio = precioServicio;
         this.prestador = prestador;
     }
@@ -37,12 +37,12 @@ public class Servicio {
         this.nombreServicio = nombreServicio;
     }
 
-    public String getDescripServcio() {
-        return descripServcio;
+    public String getDescripServicio() {
+        return descripServicio;
     }
 
-    public void setDescripServcio(String descripServcio) {
-        this.descripServcio = descripServcio;
+    public void setDescripServicio(String descripServicio) {
+        this.descripServicio = descripServicio;
     }
 
     public Double getPrecioServicio() {
