@@ -1,6 +1,6 @@
 package app.configuration;
 
-import app.repository.ClienteRepositoryImpl;
+import app.persistence.repository.ClienteRepositoryImpl;
 import app.service.BilleteraServiceImpl;
 import app.service.ClienteServiceImpl;
 import app.service.inputport.BilleteraService;

@@ -1,6 +1,5 @@
-package app.repository;
+package app.persistence.repository;
 
-import app.domain.Cliente;
 import app.domain.Prestador;
 import app.domain.Servicio;
 import app.service.outputport.ServicioRepositoryInterface;
