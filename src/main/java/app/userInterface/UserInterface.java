@@ -1,5 +1,6 @@
 package app.userInterface;
 
+import app.persistence.dbconnection.DataBaseConnection;
 import app.service.Validations.FormTypeValidator;
 import app.view.ClienteView;
 
@@ -15,6 +16,7 @@ public class UserInterface {
         int init = FormTypeValidator.intValidator("Presione 1 para inciar la aplicacion");
 
         while(init!=0){
+            DataBaseConnection.getInstance().getConnection();
 
             int option = FormTypeValidator.intValidator("""
                         Seleccione:
