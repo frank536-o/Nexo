@@ -9,7 +9,7 @@ public class DataBaseConnection {
     private final Connection connection;
 
 
-    private static final String url = "jdbc:mysql://localhost:3306/nexo_db"; //falta nombre de base de datos
+    private static final String url = "jdbc:mysql://localhost:3307/nexo_db"; //falta nombre de base de datos
     private static final String userName = "root";
     private static final String password = "";
 
@@ -21,7 +21,7 @@ public class DataBaseConnection {
             System.out.println("Conexion exitosa a la base de Datos");
 
         } catch (SQLException e) {
-            throw new RuntimeException("Errror al conenctar a la base de datos");
+            throw new RuntimeException("Error al conectar a la base de datos");
         }
     }
 

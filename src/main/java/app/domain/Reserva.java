@@ -6,7 +6,7 @@ public class Reserva {
 
     private Integer idReserva;
     private Date fechaSolicitudReserva;
-    private Date fechaRserva;
+    private Date fechaReserva;
     private String horaReserva;
     private Double precioReserva;
     private String estadoReserva;
@@ -15,11 +15,11 @@ public class Reserva {
 
     // Constructores
 
-    public Reserva(Integer idReserva, Date fechaSolicitudReserva, Date fechaRserva, String horaReserva,
+    public Reserva(Integer idReserva, Date fechaSolicitudReserva, Date fechaReserva, String horaReserva,
                    Double precioReserva, String estadoReserva, Cliente cliente, Servicio servicio) {
         this.idReserva = idReserva;
         this.fechaSolicitudReserva = fechaSolicitudReserva;
-        this.fechaRserva = fechaRserva;
+        this.fechaReserva = fechaReserva;
         this.horaReserva = horaReserva;
         this.precioReserva = precioReserva;
         this.estadoReserva = estadoReserva;
@@ -44,11 +44,11 @@ public class Reserva {
         this.fechaSolicitudReserva = fechaSolicitudReserva;
     }
     public Date getFechaRserva() {
-        return fechaRserva;
+        return fechaReserva;
     }
 
     public void setFechaRserva(Date fechaRserva) {
-        this.fechaRserva = fechaRserva;
+        this.fechaReserva = fechaRserva;
     }
 
     public String getHoraReserva() {

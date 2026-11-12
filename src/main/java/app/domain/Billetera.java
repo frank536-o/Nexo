@@ -3,14 +3,14 @@ package app.domain;
 public class Billetera {
 
     private Integer idBilletera;
-    private Integer idOwner;
+    private Integer idDueno;
     private Double saldo;
 
     // Constructores
 
-    public Billetera(Integer idBilletera, Integer idOwner, Double saldo) {
+    public Billetera(Integer idBilletera, Integer idDueno, Double saldo) {
         this.idBilletera = idBilletera;
-        this.idOwner = idOwner;
+        this.idDueno = idDueno;
         this.saldo = saldo;
     }
 
@@ -24,12 +24,12 @@ public class Billetera {
         this.idBilletera = idBilletera;
     }
 
-    public Integer getIdOwner() {
-        return idOwner;
+    public Integer getidDueno() {
+        return idDueno;
     }
 
-    public void setIdOwner(Integer idOwner) {
-        this.idOwner = idOwner;
+    public void setidDueno(Integer idDueno) {
+        this.idDueno = idDueno;
     }
 
     public Double getSaldo() {

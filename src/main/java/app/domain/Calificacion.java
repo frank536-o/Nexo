@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Calificacion {
 
-    private Integer idCalifiacion;
+    private Integer idCalificacion;
     private Double puntCalificacion;
     private String comentCalificacion;
     private Date fechaCalificacion;
@@ -14,7 +14,7 @@ public class Calificacion {
     // Constructores
     public Calificacion(Integer idCalifiacion, Double puntCalificacion, String comentCalificacion,
                         Date fechaCalificacion, Reserva reserva, Usuario usuario) {
-        this.idCalifiacion = idCalifiacion;
+        this.idCalificacion = idCalifiacion;
         this.puntCalificacion = puntCalificacion;
         this.comentCalificacion = comentCalificacion;
         this.fechaCalificacion = fechaCalificacion;
@@ -23,12 +23,12 @@ public class Calificacion {
     }
     //Getter and setter
 
-    public Integer getIdCalifiacion() {
-        return idCalifiacion;
+    public Integer getIdCalificacion() {
+        return idCalificacion;
     }
 
-    public void setIdCalifiacion(Integer idCalifiacion) {
-        this.idCalifiacion = idCalifiacion;
+    public void setIdCalificacion(Integer idCalificacion) {
+        this.idCalificacion = idCalificacion;
     }
 
     public Double getPuntCalificacion() {

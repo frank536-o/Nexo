@@ -7,7 +7,7 @@ import java.util.List;
 
 public class BilleteraServiceImpl implements BilleteraService {
     @Override
-    public Billetera createBilletera(Integer idBilletera, Integer idOwner, Double saldo) {
+    public Billetera createBilletera(Integer idBilletera, Integer idDueno, Double saldo) {
         return null;
     }
 

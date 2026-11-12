@@ -1,38 +1,37 @@
 package app.persistence.repository;
 
 import app.domain.Billetera;
+import app.service.outputport.BilleteraRepositoryInterface;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-public class BilleteraRepositoryAdapterDB implements BilleteraRepositoryImpl{
-
-    private final Connection dbConnetion;
-
-    BilleteraRepositoryAdapterDB(Connection dbConnetion){
-        this.dbConnetion = dbConnetion;
+public class BilleteraRepositoryAdapterDB implements BilleteraRepositoryInterface {
+    @Override
+    public Billetera savedBilletera() {
+        return null;
     }
 
     @Override
-    public Billetera savedBilletera(Billetera billetera) {
-
-        String sql = "INSERT INTO billetera(id_billetera  , id_owner , saldo)VALUES(?,?,?)";
-
-        try(PreparedStatement ps= dbConnetion.prepareStatement(sql)) {
-
-        }catch (SQLException e){
-            throw new RuntimeException("No se pudo crear la billetera" + e.getMessage());
-
-        }
-
-        return billetera;
+    public Billetera selectBilleteraById(int id) {
+        return null;
     }
 
+    @Override
+    public List<Billetera> selectAllBilletera() {
+        return List.of();
+    }
 
+    @Override
+    public void deletedBilleteraById(int id) {
 
-    private void setBilleteraParams(PreparedStatement ps, Billetera billetera) throws SQLException{
-        ps.setInt(1,billetera.getIdBilletera());
+    }
+
+    @Override
+    public Billetera updateBilletera(Billetera billetera) {
+        return null;
     }
 }
+

@@ -21,7 +21,10 @@ public class UserInterface {
             int option = FormTypeValidator.intValidator("""
                         Seleccione:
                         1.Registrar
-                        2.Consultar todos los usuarios
+                        2.Consultar Cliente por ID
+                        3.Inicio de sesión Cliente
+                        4.Actualizar datos Cliente
+                        5.Consultar todos los usuarios
                     """);
 
             switch (option){
@@ -30,13 +33,24 @@ public class UserInterface {
                     clienteView.crearUsuarioCliente();
                     break;
                 case 2:
+                    System.out.println("Buscar Cliente por ID");
+                    clienteView.mostrarClienteById();
+                    break;
+                case 3:
+                    System.out.println("Iniciar Sesión Cliente");
+                    boolean isAuth = clienteView.iniciarSesionCliente();
+                    break;
+                case 4:
+                    System.out.println("Actualizar datos Cliente");
+                    clienteView.actualizarCliente();
+                    break;
+                case 5:
                     System.out.println("Listar todos los usuarios");
                     clienteView.showAllClientes();
                     break;
                 default:
-                    System.out.println("Seleccione una opcion valida");
+                    System.out.println("Seleccione una opción valida");
             }
         }
     }
-
 }

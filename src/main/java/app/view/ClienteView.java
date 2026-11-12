@@ -34,17 +34,64 @@ public class ClienteView {
         Billetera billetera = billeteraService.createBilletera(1, id, 0.0);
 
         clienteService.createCliente(id, docType, name, lastName, phone,
-                email, address, password, birthDate, billetera, role,0);
+                email, address, password, birthDate, billetera, role, 0);
     }
 
-    public void iniciarSesionCliente(){}
+    public boolean iniciarSesionCliente() {
+        String email = FormTypeValidator.stringValidator("Ingrese su correo");
+        String password = FormTypeValidator.stringValidator("Ingrese su contraseña");
+        boolean cliente = clienteService.iniciarSesionCliente(email, password);
+        if (cliente) {
+            System.out.println("Bienvenid@ de nuevo");
+            return true;
+        } else {
+            System.out.println("Error en el inicio de sesión");
+        }
+        return false;
+    }
 
-    public void actualizarUsuarioCliente(){}
+    public void actualizarCliente() {
+        System.out.println("Actualizar Datos del cliente");
 
-    public void eliminarUsuarioCliente(){}
+        String docType = SetDocumentType.getDocType();
+        int id = FormTypeValidator.intValidator("Ingrese el id del Cliente");
+        String name = FormTypeValidator.stringValidator("Ingrese el nombre del Cliente");
+        String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Cliente");
+        String phone = FormTypeValidator.stringValidator("Ingrese el telefono del Cliente");
+        String email = FormTypeValidator.stringValidator("Ingrese el correo del Cliente");
+        String address = FormTypeValidator.stringValidator("Ingrese la dirección del Cliente");
+        String password = FormTypeValidator.stringValidator("Ingrese la contraseña del Cliente");
+        Date birthDate = getBirthDateFromInput();
+        String role = "CLIENTE";
+
+
+    }
+
+    public void mostrarClienteById(){
+
+        int id = FormTypeValidator.intValidator("Ingrese el id del cliente a consultar");
+
+        Cliente cliente = clienteService.selectClienteById(id);
+
+        System.out.println(" Id: " + cliente.getId() + "\n "
+                + "Tipo de Documento: " + cliente.getDocType() + "\n "
+                + "Nombre: " + cliente.getName() + "\n "
+                + "Apellido: " + cliente.getLastName() + "\n "
+                + "Telefono: " + cliente.getPhone() + "\n "
+                + "Correo: " + cliente.getEmail() + "\n "
+                + "Dirección: " + cliente.getAddress() + "\n "
+                + "Contraseña: " + cliente.getPassword() + "\n "
+                + "Fecha de Nacimiento: " + cliente.getBirthdate() + "\n "
+                + "Role: " + cliente.getRole() + "\n ");
+
+
+    }
+
+    public void eliminarUsuarioCliente() {
+    }
 
     public Date getBirthDateFromInput() {
-        String birthDateString = FormTypeValidator.stringValidator("Ingrese la fecha de nacimiento del propietario (formato: yyyy-MM-dd)");
+        String birthDateString = FormTypeValidator.stringValidator("Ingrese la fecha de nacimiento (formato: yyyy-MM-dd)");
         Date birthDate = null;
         try {
             birthDate = new java.text.SimpleDateFormat("yyyy-MM-dd").parse(birthDateString);
@@ -54,13 +101,26 @@ public class ClienteView {
         return birthDate;
     }
 
-    public void showAllClientes(){
+    public void showAllClientes() {
 
         List<Cliente> clientes = clienteService.selectAllCliente();
 
-        for(Cliente cliente: clientes){
-            System.out.println(cliente.getId() + "" + cliente.getName() + "");
+        for (Cliente cliente : clientes) {
+            System.out.println(" Id: " + cliente.getId() + "\n "
+                    + "Tipo de Documento: " + cliente.getDocType() + "\n "
+                    + "Nombre: " + cliente.getName() + "\n "
+                    + "Apellido: " + cliente.getLastName() + "\n "
+                    + "Telefono: " + cliente.getPhone() + "\n "
+                    + "Correo: " + cliente.getEmail() + "\n "
+                    + "Dirección: " + cliente.getAddress() + "\n "
+                    + "Contraseña: " + cliente.getPassword() + "\n "
+                    + "Fecha de Nacimiento: " + cliente.getBirthdate() + "\n "
+                    + "Role: " + cliente.getRole() + "\n ");
+
         }
 
+
     }
+
 }
+

@@ -13,8 +13,11 @@ public class Cliente extends Usuario{
         this.cantServicios = cantServicios;
     }
 
-    //Getter and Setters
+    public Cliente() {
 
+    }
+
+    //Getter and Setters
 
     public Integer getCantServicios() {
         return cantServicios;
@@ -22,6 +25,10 @@ public class Cliente extends Usuario{
 
     public void setCantServicios(Integer cantServicios) {
         this.cantServicios = cantServicios;
+    }
+
+    public  void Cliente() {
+
     }
 
     @Override

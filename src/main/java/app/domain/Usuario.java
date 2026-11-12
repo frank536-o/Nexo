@@ -12,7 +12,7 @@ public class Usuario {
     private String email;
     private String address;
     private String password;
-    private Date birthdate ;
+    public Date birthdate ;
     private Billetera billetera;
     private String role;
 
@@ -30,6 +30,9 @@ public class Usuario {
         this.birthdate = birthdate;
         this.billetera = billetera;
         this.role = role;
+    }
+
+    public Usuario() {
     }
 
 

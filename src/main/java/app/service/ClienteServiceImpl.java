@@ -7,6 +7,7 @@ import app.service.outputport.ClienteRepositoryInterface;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class ClienteServiceImpl implements ClienteService {
 
@@ -24,22 +25,30 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public Cliente selectClienteById(int id) {
-        return clienteRepositoryInterface.selectClienteById(id);
+        return clienteRepositoryInterface.selectClienteById(id).orElseThrow();
     }
 
     @Override
     public List<Cliente> selectAllCliente() {
+
         return clienteRepositoryInterface.selectAllCliente();
     }
 
     @Override
-    public Cliente updateCliente(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, Integer cantServicios) {
-        return clienteRepositoryInterface.updateCliente(id, docType,name, lastName,phone,email,address,password,birthdate,billetera,cantServicios);
+    public Cliente actualizarCliente(int id, String docType, String name, String lastName, String phone,
+                                     String email, String address, String password, Date birthdate, String role){
+        return null;
     }
+
 
     @Override
     public void deletedClienteById(int id) {
         clienteRepositoryInterface.deleteCliente(id);
 
+    }
+
+    @Override
+    public boolean iniciarSesionCliente(String email, String password) {
+        return clienteRepositoryInterface.iniciarSesionCliente(email,password);
     }
 }
