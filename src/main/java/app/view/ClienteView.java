@@ -30,10 +30,11 @@ public class ClienteView {
         String password = FormTypeValidator.stringValidator("Ingrese la contraseña del Cliente");
         Date birthDate = getBirthDateFromInput();
         String role = "CLIENTE";
-        Billetera billetera = billeteraService.createBilletera(1, id, 0.0);
 
         clienteService.createCliente(id, docType, name, lastName, phone,
-                email, address, password, birthDate, billetera, role, 0);
+                email, address, password, birthDate, null, role, 0);
+        Billetera billetera = billeteraService.createBilleteraCliente(id, 0.0);
+
     }
 
     public boolean iniciarSesionCliente() {

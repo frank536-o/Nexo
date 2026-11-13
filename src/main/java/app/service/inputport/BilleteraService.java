@@ -11,4 +11,9 @@ public interface BilleteraService {
     public List<Billetera> selectAllBilletera();
     public Billetera updateBilletera(Integer idBilletera, Double saldo) ;
     public void deletedBilleteraById(int id);
+
+    Billetera createBilleteraCliente(int id, double v);
+
+    Billetera createBilleteraPrestador(int id, double v);
 }
+

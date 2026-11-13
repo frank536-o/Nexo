@@ -33,12 +33,14 @@ public class PrestadorView {
         Date birthDate = getBirthDateFromInput();
         String role = "PRESTADOR";
         String descripPerfil = FormTypeValidator.stringValidator("Ingrese la descripcion del Prestador");
-        Billetera billetera = billeteraService.createBilletera(1, id, 0.0);
 
 
         prestadorService.createPrestador(id, docType, name, lastName, phone,
-                email, address, password, birthDate, billetera, role,
+                email, address, password, birthDate, null, role,
                 descripPerfil, 0);
+
+        Billetera billetera = billeteraService.createBilleteraPrestador( id, 0.0);
+
     }
 
     public boolean iniciarSesionPrestador() {

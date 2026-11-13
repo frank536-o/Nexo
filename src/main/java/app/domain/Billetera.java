@@ -10,7 +10,6 @@ public class Billetera {
 
     public Billetera(Integer idBilletera, Integer idDueno, Double saldo) {
         this.idBilletera = idBilletera;
-        this.idDueno = idDueno;
         this.saldo = saldo;
     }
 
@@ -24,13 +23,6 @@ public class Billetera {
         this.idBilletera = idBilletera;
     }
 
-    public Integer getidDueno() {
-        return idDueno;
-    }
-
-    public void setidDueno(Integer idDueno) {
-        this.idDueno = idDueno;
-    }
 
     public Double getSaldo() {
         return saldo;
