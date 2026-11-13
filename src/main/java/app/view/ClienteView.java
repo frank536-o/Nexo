@@ -6,8 +6,6 @@ import app.service.Validations.FormTypeValidator;
 import app.service.helpers.SetDocumentType;
 import app.service.inputport.BilleteraService;
 import app.service.inputport.ClienteService;
-import com.mysql.cj.jdbc.interceptors.ConnectionLifecycleInterceptor;
-
 import java.util.Date;
 import java.util.List;
 
@@ -44,6 +42,7 @@ public class ClienteView {
         boolean cliente = clienteService.iniciarSesionCliente(email, password);
         if (cliente) {
             System.out.println("Bienvenid@ de nuevo");
+
             return true;
         } else {
             System.out.println("Error en el inicio de sesión");
@@ -65,8 +64,6 @@ public class ClienteView {
         String role = "CLIENTE";
         clienteService.actualizarCliente(id, docType, name, lastName, phone,
                 email, address, password, null, role);
-
-
 
     }
 
@@ -110,7 +107,7 @@ public class ClienteView {
         return birthDate;
     }
 
-    public void showAllClientes() {
+    public void mostrarTotalClientes() {
 
         List<Cliente> clientes = clienteService.selectAllCliente();
 
@@ -125,7 +122,6 @@ public class ClienteView {
                     + "Contraseña: " + cliente.getPassword() + "\n "
                     + "Fecha de Nacimiento: " + cliente.getBirthdate() + "\n "
                     + "Role: " + cliente.getRole() + "\n ");
-
         }
 
 

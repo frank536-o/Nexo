@@ -1,22 +1,30 @@
-/*package app.persistence.repository;
+package app.persistence.repository;
 
 import app.domain.Billetera;
+import app.domain.Cliente;
 import app.domain.Prestador;
+import app.persistence.mapper.RowMapper;
 import app.service.outputport.PrestadorRepositoryInterface;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class PrestadorRepositoryAdapterDB implements PrestadorRepositoryInterface {
 
 
-    /*private final Connection dbConnetion;
+    private final Connection dbConnetion;
 
-    PrestadorRepositoryAdapterDB(Connection dbConnetion){
+    private final RowMapper rowMapper;
+
+    public PrestadorRepositoryAdapterDB(Connection dbConnetion, RowMapper rowMapper){
         this.dbConnetion = dbConnetion;
+        this.rowMapper = rowMapper;
     }
 
 
@@ -38,21 +46,96 @@ public class PrestadorRepositoryAdapterDB implements PrestadorRepositoryInterfac
 
     @Override
     public List<Prestador> selectAllPrestador() {
-        return List.of();
+        List<Prestador> prestadores = new ArrayList<>();
+        String sql= "SELECT * FROM prestador";
+        try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ResultSet rs= ps.executeQuery();
+
+            while (rs.next()){
+                prestadores.add((Prestador)rowMapper.mapRow(rs));
+            }
+
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error al consultar los Prestadores" + e.getMessage());
+        }
+        return prestadores;
     }
 
     @Override
-    public Prestador selectPrestadorById(int id) {
-        return null;
+    public Optional<Prestador> selectPrestadorById(int id) {
+        String sql= "SELECT * FROM prestador WHERE id_prestador = ?";
+
+        try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ps.setInt(1,id);
+            ResultSet rs= ps.executeQuery();
+
+            if (rs.next()){
+                return Optional.of((Prestador)rowMapper.mapRow(rs));
+            }
+
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error al consultar el Prestador" + e.getMessage());
+        }
+
+        return Optional.empty();
+
     }
 
     @Override
-    public Prestador updatePrestador(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, Billetera billetera, String role, String descripPerfil, Integer serviciosRealizados) {
-        return null;
+    public Prestador actualizarPrestador(int id, Prestador prestador) {
+        String sql = "UPDATE prestador SET doc_type = ?, name = ?, last_name = ?, phone = ?, email = ?, address = ?, password = ?, descrip_perfil = ? WHERE id_prestador = ?";
+
+        try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ps.setString(1, prestador.getDocType());
+            ps.setString(2, prestador.getName());
+            ps.setString(3, prestador.getLastName());
+            ps.setString(4, prestador.getPhone());
+            ps.setString(5, prestador.getEmail());
+            ps.setString(6, prestador.getAddress());
+            ps.setString(7, prestador.getPassword());
+            ps.setString(8, prestador.getDescripPerfil());
+            ps.setInt(9, id);
+
+            ps.executeUpdate();
+            System.out.println("Se actualizaron los datos del Prestador en la BD");
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al actualizar el Prestador: " + e.getMessage());
+        }
+        return prestador;
+    }
+    @Override
+    public void eliminarPrestador(int id) {
+        String sql= "DELETE FROM prestador WHERE id_prestador = ?";
+
+        try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("Se elimino el Prestador de la BD");
+
+        }
+        catch (SQLException e){
+            throw new RuntimeException("No se pudo eliminar el Prestador en BD" + e.getMessage());
+        }
+
     }
 
+
     @Override
-    public void deletePrestador(int id) {
+    public boolean iniciarSesionPrestador(String email, String password) {
+        String sql = "SELECT * FROM prestador WHERE email = ? AND password = ?";
+
+        try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al iniciar sesión: " + e.getMessage());
+        }
 
     }
 
@@ -70,4 +153,4 @@ public class PrestadorRepositoryAdapterDB implements PrestadorRepositoryInterfac
         ps.setString(11, prestador.getDescripPerfil());
         ps.setInt(12, prestador.getServiciosRealizados());
     }
-}*/
+}

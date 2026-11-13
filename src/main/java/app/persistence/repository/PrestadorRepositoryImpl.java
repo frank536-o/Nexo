@@ -1,6 +1,7 @@
 package app.persistence.repository;
 
 import app.domain.Billetera;
+import app.domain.Cliente;
 import app.domain.Prestador;
 import app.service.outputport.PrestadorRepositoryInterface;
 
@@ -8,6 +9,7 @@ import app.service.outputport.PrestadorRepositoryInterface;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class PrestadorRepositoryImpl implements PrestadorRepositoryInterface {
 
@@ -25,20 +27,31 @@ public class PrestadorRepositoryImpl implements PrestadorRepositoryInterface {
     public List<Prestador> selectAllPrestador() {return prestadores;}
 
     @Override
-    public Prestador selectPrestadorById(int id) {
-        return prestadores.get(id);
-    }
-
-    @Override
-    public Prestador updatePrestador(int id, String docType, String name, String lastName, String phone,
-                                     String email, String address, String password, Date birthdate, Billetera billetera, String role,
-                                     String descripPerfil, Integer serviciosRealizados) {
+    public Optional<Prestador> selectPrestadorById(int id) {
         return null;
     }
 
     @Override
-    public void deletePrestador(int id) {
+    public Prestador actualizarPrestador(int id, Prestador prestador) {
+        return null;
+    }
 
+    @Override
+    public void eliminarPrestador(int id) {
+        prestadores.remove(id);
+
+    }
+    @Override
+    public boolean iniciarSesionPrestador(String email, String password) {
+        if (email == null || password == null) return false;
+
+        for (Prestador prestador : prestadores) {
+            if (email.equalsIgnoreCase(prestador.getEmail()) &&
+                    password.equals(prestador.getPassword())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

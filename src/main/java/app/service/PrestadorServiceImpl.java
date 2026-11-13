@@ -1,6 +1,7 @@
 package app.service;
 
 import app.domain.Billetera;
+import app.domain.Cliente;
 import app.domain.Prestador;
 import app.service.inputport.PrestadorService;
 import app.service.outputport.PrestadorRepositoryInterface;
@@ -13,20 +14,22 @@ public class PrestadorServiceImpl implements PrestadorService {
     private final PrestadorRepositoryInterface prestadorRepositoryInterface;
 
     public PrestadorServiceImpl(PrestadorRepositoryInterface PrestadorRepositoryInterface) {
-        this.prestadorRepositoryInterface= PrestadorRepositoryInterface;
+        this.prestadorRepositoryInterface = PrestadorRepositoryInterface;
     }
 
     @Override
     public Prestador createPrestador(int id, String docType, String name, String lastName, String phone,
                                      String email, String address, String password, Date birthdate, Billetera billetera, String role,
                                      String descripPerfil, Integer serviciosRealizados) {
-        Prestador nuevoPrestador= new Prestador(id, docType, name, lastName, phone, email, address, password, birthdate, billetera, role, descripPerfil, serviciosRealizados);
+        Prestador nuevoPrestador = new Prestador(id, docType, name, lastName, phone, email, address, password, birthdate, role, descripPerfil, serviciosRealizados);
         return prestadorRepositoryInterface.savePrestador(nuevoPrestador);
     }
 
     @Override
-    public Prestador selectPrestadorById(int id) {return prestadorRepositoryInterface.selectPrestadorById(id);
+    public Prestador selectPrestadorById(int id) {
+        return prestadorRepositoryInterface.selectPrestadorById(id).orElse(null);
     }
+
 
     @Override
     public List<Prestador> selectAllPrestador() {
@@ -34,16 +37,22 @@ public class PrestadorServiceImpl implements PrestadorService {
     }
 
     @Override
-    public Prestador updatePrestador(int id, String docType, String name, String lastName, String phone,
-                                 String email, String address, String password, Date birthdate, Billetera billetera, String role,
-                                 String descripPerfil, Integer serviciosRealizados) {
-        return prestadorRepositoryInterface.updatePrestador(id, docType, name, lastName, phone, email, address, password,
-                birthdate, billetera, role, descripPerfil, serviciosRealizados);
+    public Prestador actualizarPrestador(int id, String docType, String name, String lastName, String phone,
+                                         String email, String address, String password, Date birthdate, String role,
+                                         String descripPerfil) {
+        Prestador prestador = new Prestador (id,docType,name,lastName,phone,email,address,password,birthdate,role,descripPerfil);
+        return prestadorRepositoryInterface.actualizarPrestador(id, prestador);
     }
 
     @Override
-    public void deletedPrestadorById(int id) {
-        prestadorRepositoryInterface.deletePrestador(id);
+    public void eliminarPrestadorById(int id) {
+        prestadorRepositoryInterface.eliminarPrestador(id);
 
     }
+
+    @Override
+    public boolean iniciarSesionPrestador(String email, String password) {
+        return prestadorRepositoryInterface.iniciarSesionPrestador(email, password);
+    }
 }
+

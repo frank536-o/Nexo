@@ -13,8 +13,11 @@ public interface PrestadorService {
                                      String descripPerfil, Integer serviciosRealizados);
     public Prestador selectPrestadorById(int id);
     public List<Prestador> selectAllPrestador();
-    public Prestador updatePrestador(int id, String docType, String name, String lastName, String phone,
-                                     String email, String address, String password, Date birthdate, Billetera billetera, String role,
-                                     String descripPerfil, Integer serviciosRealizados);
-    public void deletedPrestadorById(int id);
+    public Prestador actualizarPrestador(int id, String docType, String name, String lastName, String phone,
+                                         String email, String address, String password, Date birthdate,
+                                         String role, String descripPerfil);
+    public void eliminarPrestadorById(int id);
+
+    boolean iniciarSesionPrestador(String email, String password);
 }
+

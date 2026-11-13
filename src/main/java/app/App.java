@@ -8,7 +8,6 @@ public class App {
             UserInterface userInterface = Config.createUserInterface();
         assert userInterface != null;
         userInterface.menuApp();
-        userInterface.menuRegistrar();
     }
 }
 

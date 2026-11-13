@@ -1,84 +1,171 @@
 package app.userInterface;
 
+import app.domain.Prestador;
 import app.persistence.dbconnection.DataBaseConnection;
 import app.service.Validations.FormTypeValidator;
 import app.view.ClienteView;
+import app.view.PrestadorView;
 
 public class UserInterface {
 
     private final ClienteView clienteView;
-    public UserInterface(ClienteView clienteView) {
+    private final PrestadorView prestadorView;
+    public UserInterface(ClienteView clienteView, PrestadorView prestadorView) {
         this.clienteView = clienteView;
+        this.prestadorView = prestadorView;
     }
 
     public void menuApp(){
 
-        int init = FormTypeValidator.intValidator("Presione 1 para inciar la aplicacion");
+        int init = FormTypeValidator.intValidator("Presione 1 para inciar la aplicacion NEXO");
 
-        while(init!=0){
+        while(init!=0) {
             DataBaseConnection.getInstance().getConnection();
 
             int option = FormTypeValidator.intValidator("""
+                        ***BIENVENIDO A NEXO***
                         Seleccione:
                         1.Registrar
-                        2.Consultar Cliente por ID
-                        3.Inicio de sesión Cliente
-                        4.Actualizar datos Cliente
-                        5.Consultar todos los usuarios
-                        6.Eliminar Cliente
+                        2.Iniciar Sesión
+                        3.Salir
                     """);
 
-            switch (option){
+            switch (option) {
                 case 1:
                     System.out.println(" Registrar Usuario Nuevo");
                     menuRegistrar();
                     break;
                 case 2:
-                    System.out.println("Buscar Cliente por ID");
-                    clienteView.mostrarClienteById();
+                    System.out.println("Inicio de Sesión");
+                    menuInicioSesion();
                     break;
                 case 3:
-                    System.out.println("Iniciar Sesión Cliente");
-                    boolean isAuth = clienteView.iniciarSesionCliente();
+                    System.out.println("Salir");
+                    init = 0;
                     break;
-                case 4:
-                    System.out.println("Actualizar datos Cliente");
-                    clienteView.actualizarCliente();
-                    break;
-                case 5:
-                    System.out.println("Listar todos los usuarios");
-                    clienteView.showAllClientes();
-                    break;
-                case 6:
-                    System.out.println("Eliminar Cliente");
-                    clienteView.eliminarCliente();
                 default:
-                    System.out.println("Seleccione una opción valida");
+                    System.out.println("Seleccione una opcion valida");
             }
         }
-    }
 
-    public void menuRegistrar(){
+        }
+
+    public void menuRegistrar() {
         DataBaseConnection.getInstance().getConnection();
 
         int option = FormTypeValidator.intValidator("""
-                        Seleccione:
-                        1.Registrar como Cliente
-                        2.Registrar como Prestador
-                    """);
+                    ***INICIAR SESIÓN***
+                    1.Registrar como Cliente
+                    2.Registrar como Prestador
+                """);
 
-        switch (option){
+        switch (option) {
             case 1:
                 System.out.println("Registrar Cliente");
                 clienteView.crearUsuarioCliente();
                 break;
-                //case 2:
-                 //   prestadorView.crearUsuarioPrestador();
-                   // break;
+            case 2:
+                System.out.println("Registrar Prestador");
+                 prestadorView.crearUsuarioPrestador();
+                 break;
             default:
                 System.out.println("Seleccione una opción valida");
 
         }
+    }
+
+    public void  menuInicioSesion(){
+            DataBaseConnection.getInstance().getConnection();
+            int option = FormTypeValidator.intValidator("""
+                        ***MENÚ INICIO DE SESIÓN***
+                        1.Iniciar Sesión como Cliente
+                        2.Iniciar Sesión  como Prestador
+                    """);
+
+        switch (option){
+            case 1:
+                System.out.println("Inicio Sesión Cliente");
+                boolean isAuthCliente = clienteView.iniciarSesionCliente();
+                if (isAuthCliente){
+                    menuCliente();
+                }
+                break;
+                case 2:
+                    System.out.println("Inicio Sesión Prestador");
+                    boolean isAuthPrestador = prestadorView.iniciarSesionPrestador();
+                    if (isAuthPrestador){
+                        menuPrestador();
+                    }
+
+                break;
+            default:
+                System.out.println("Seleccione una opción valida");
+        }
 
     }
+    public void menuCliente() {
+        while (true) {
+            int option = FormTypeValidator.intValidator("""
+                        *** MENÚ CLIENTE ***
+                        1. Consultar cliente por ID
+                        2. Actualizar mis datos
+                        3. Listar todos los clientes
+                        4. Eliminar cuenta
+                        5. Cerrar sesión
+                    """);
+
+            switch (option) {
+                case 1:
+                    clienteView.mostrarClienteById();
+                    break;
+                case 2:
+                    clienteView.actualizarCliente();
+                    break;
+                case 3:
+                    clienteView.mostrarTotalClientes();
+                    break;
+                case 4:
+                    clienteView.eliminarCliente();
+                    break;
+                case 5:
+                    System.out.println("Sesión cerrada.");
+                    return;
+                default:
+                    System.out.println("Seleccione una opción válida");
+            }
+        }
+    }
+    public void menuPrestador() {
+        while (true) {
+            int option = FormTypeValidator.intValidator("""
+                        *** MENÚ PRESTADOR ***
+                        1. Consultar prestador por ID
+                        2. Actualizar mis datos
+                        3. Listar todos los prestadores
+                        4. Eliminar cuenta
+                        5. Cerrar sesión
+                    """);
+
+            switch (option) {
+                case 1:
+                    prestadorView.mostrarPrestadorById();
+                    break;
+                case 2:
+                    prestadorView.actualizarPrestador();
+                    break;
+                case 3:
+                    prestadorView.mostrarTotalPrestadores();
+                    break;
+                case 4:
+                    prestadorView.eliminarUsuarioPrestador();
+                    break;
+                case 5:
+                    System.out.println("Sesión cerrada.");
+                    return;
+                default:
+                    System.out.println("Seleccione una opción válida");
+            }
+        }
+    }
+
 }
