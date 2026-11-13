@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -79,29 +78,42 @@ public class ClienteRepositoryAdapterDB implements ClienteRepositoryInterface {
             return Optional.empty();
         }
 
-    @Override
-    public Cliente actualizarCliente(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthdate, String role) {
 
-        String sql= "UPDATE Cliente SET name = ?, last_name = ?, phone = ?, email = ?, address = ? WHERE id_Cliente = ?";
+    @Override
+    public Cliente actualizarCliente(int id, Cliente cliente) {
+        // Solo se actualizan 5 columnas; el resto queda intacto en MySQL
+        String sql = "UPDATE cliente SET name = ?, last_name = ?, phone = ?, email = ?, address = ?, password = ? WHERE id_cliente = ?";
 
         try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+            ps.setString(1, cliente.getName());
+            ps.setString(2, cliente.getLastName());
+            ps.setString(3, cliente.getPhone());
+            ps.setString(4, cliente.getEmail());
+            ps.setString(5, cliente.getAddress());
+            ps.setString(6, cliente.getPassword());
+            ps.setInt(7, id); // El último ? siempre es el ID del WHERE
 
+            ps.executeUpdate();
+            System.out.println("Se actualizaron los datos del Cliente en la BD");
+        } catch (SQLException e) {
+            throw new RuntimeException("Error al actualizar el Cliente: " + e.getMessage());
         }
-        catch (SQLException e){
-            throw new RuntimeException("Error al actualizar el cliente" + e.getMessage());
-        }
-        return null;
+        return cliente;
     }
 
+
     @Override
-        public void deleteCliente(int id) {
-            String sql= "";
+        public void eliminarCliente(int id) {
+            String sql= "DELETE FROM cliente WHERE id_cliente = ?";
 
             try (PreparedStatement ps = dbConnetion.prepareStatement(sql)) {
+                ps.setInt(1, id);
+                ps.executeUpdate();
+                System.out.println("Se elimino el Cliente de la BD");
 
             }
             catch (SQLException e){
-                throw new RuntimeException("Error al consultar el cliente" + e.getMessage());
+                throw new RuntimeException("No se pudo eliminar el cliente en BD" + e.getMessage());
             }
 
         }

@@ -5,7 +5,6 @@ import app.domain.Cliente;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 public interface ClienteService {
 
@@ -14,10 +13,10 @@ public interface ClienteService {
                                  String role, Integer cantServicios);
     public Cliente selectClienteById(int id);
     public List<Cliente> selectAllCliente();
-    public Cliente actualizarCliente(int id, String docType, String name, String lastName, String phone,
+    public Cliente actualizarCliente (int id, String docType, String name, String lastName, String phone,
                                      String email, String address, String password, Date birthdate, String role);
 
-    public void deletedClienteById(int id);
+    public void eliminarClienteById(int id);
 
 
     boolean iniciarSesionCliente(String email, String password);

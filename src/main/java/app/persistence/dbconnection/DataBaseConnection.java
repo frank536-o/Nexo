@@ -11,7 +11,7 @@ public class DataBaseConnection {
 
     private static final String url = "jdbc:mysql://localhost:3307/nexo_db"; //falta nombre de base de datos
     private static final String userName = "root";
-    private static final String password = "";
+    public static final String password = "";
 
     private DataBaseConnection() {
 

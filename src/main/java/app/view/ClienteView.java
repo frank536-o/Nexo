@@ -6,6 +6,7 @@ import app.service.Validations.FormTypeValidator;
 import app.service.helpers.SetDocumentType;
 import app.service.inputport.BilleteraService;
 import app.service.inputport.ClienteService;
+import com.mysql.cj.jdbc.interceptors.ConnectionLifecycleInterceptor;
 
 import java.util.Date;
 import java.util.List;
@@ -61,8 +62,10 @@ public class ClienteView {
         String email = FormTypeValidator.stringValidator("Ingrese el correo del Cliente");
         String address = FormTypeValidator.stringValidator("Ingrese la dirección del Cliente");
         String password = FormTypeValidator.stringValidator("Ingrese la contraseña del Cliente");
-        Date birthDate = getBirthDateFromInput();
         String role = "CLIENTE";
+        clienteService.actualizarCliente(id, docType, name, lastName, phone,
+                email, address, password, null, role);
+
 
 
     }
@@ -72,6 +75,11 @@ public class ClienteView {
         int id = FormTypeValidator.intValidator("Ingrese el id del cliente a consultar");
 
         Cliente cliente = clienteService.selectClienteById(id);
+
+        if (cliente == null) {
+            System.out.println("No se encontro el cliente en la BD");
+            return;
+        }
 
         System.out.println(" Id: " + cliente.getId() + "\n "
                 + "Tipo de Documento: " + cliente.getDocType() + "\n "
@@ -84,10 +92,11 @@ public class ClienteView {
                 + "Fecha de Nacimiento: " + cliente.getBirthdate() + "\n "
                 + "Role: " + cliente.getRole() + "\n ");
 
-
     }
 
-    public void eliminarUsuarioCliente() {
+    public void eliminarCliente() {
+        int id = FormTypeValidator.intValidator("Ingrese el Id de cliente a eliminar");
+        clienteService.eliminarClienteById(id);
     }
 
     public Date getBirthDateFromInput() {

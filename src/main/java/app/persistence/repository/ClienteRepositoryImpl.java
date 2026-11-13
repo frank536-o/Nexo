@@ -32,14 +32,13 @@ public class ClienteRepositoryImpl implements ClienteRepositoryInterface {
 
 
     @Override
-    public Cliente actualizarCliente(int id, String docType, String name, String lastName, String phone,
-                                     String email, String address, String password, Date birthdate, String role) {
+    public Cliente actualizarCliente(int id, Cliente cliente) {
         return null;
     }
 
 
     @Override
-    public void deleteCliente(int id) {
+    public void eliminarCliente(int id) {
         clientes.remove(id);
     }
 

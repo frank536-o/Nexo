@@ -36,6 +36,7 @@ public class Usuario {
     }
 
 
+
 //Getter and Setters
 
     public int getId() {

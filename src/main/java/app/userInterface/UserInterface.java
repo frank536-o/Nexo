@@ -25,12 +25,13 @@ public class UserInterface {
                         3.Inicio de sesión Cliente
                         4.Actualizar datos Cliente
                         5.Consultar todos los usuarios
+                        6.Eliminar Cliente
                     """);
 
             switch (option){
                 case 1:
-                    System.out.println("Registrar");
-                    clienteView.crearUsuarioCliente();
+                    System.out.println(" Registrar Usuario Nuevo");
+                    menuRegistrar();
                     break;
                 case 2:
                     System.out.println("Buscar Cliente por ID");
@@ -48,9 +49,36 @@ public class UserInterface {
                     System.out.println("Listar todos los usuarios");
                     clienteView.showAllClientes();
                     break;
+                case 6:
+                    System.out.println("Eliminar Cliente");
+                    clienteView.eliminarCliente();
                 default:
                     System.out.println("Seleccione una opción valida");
             }
         }
+    }
+
+    public void menuRegistrar(){
+        DataBaseConnection.getInstance().getConnection();
+
+        int option = FormTypeValidator.intValidator("""
+                        Seleccione:
+                        1.Registrar como Cliente
+                        2.Registrar como Prestador
+                    """);
+
+        switch (option){
+            case 1:
+                System.out.println("Registrar Cliente");
+                clienteView.crearUsuarioCliente();
+                break;
+                //case 2:
+                 //   prestadorView.crearUsuarioPrestador();
+                   // break;
+            default:
+                System.out.println("Seleccione una opción valida");
+
+        }
+
     }
 }
