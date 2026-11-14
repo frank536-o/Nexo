@@ -22,6 +22,10 @@ public class ClienteView {
 
         String docType = SetDocumentType.getDocType();
         int id = FormTypeValidator.intValidator("Ingrese el id del Cliente");
+        if (clienteService.selectClienteById(id) != null) {
+            System.out.println("Error: Ya existe un cliente registrado con el ID " + id + ". Intente con otro.");
+            return;
+        }
         String name = FormTypeValidator.stringValidator("Ingrese el nombre del Cliente");
         String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Cliente");
         String phone = FormTypeValidator.stringValidator("Ingrese el telefono del Cliente");
@@ -34,6 +38,10 @@ public class ClienteView {
         clienteService.createCliente(id, docType, name, lastName, phone,
                 email, address, password, birthDate, null, role, 0);
         Billetera billetera = billeteraService.createBilleteraCliente(id, 0.0);
+        if (billetera != null && billetera.getId_Billetera() != null) {
+            System.out.println("Billetera activada. Tu número único de ID Billetera es: " + billetera.getId_Billetera());
+            System.out.println("Saldo inicial: $" + billetera.getSaldo());
+        }
 
     }
 

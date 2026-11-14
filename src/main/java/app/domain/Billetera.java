@@ -2,25 +2,48 @@ package app.domain;
 
 public class Billetera {
 
-    private Integer idBilletera;
-    private Integer idDueno;
+    private Integer id_Billetera;
+    private Integer id_Cliente;
+    private Integer id_Prestador;
     private Double saldo;
 
     // Constructores
 
-    public Billetera(Integer idBilletera, Integer idDueno, Double saldo) {
-        this.idBilletera = idBilletera;
+    public Billetera(Integer id_Billetera, Integer id_Cliente, Integer id_Prestador, Double saldo) {
+        this.id_Billetera = id_Billetera;
+        this.id_Cliente= id_Cliente;
+        this.id_Prestador= id_Prestador;
         this.saldo = saldo;
+    }
+
+    public Billetera() {
+
     }
 
     //Getter and setter
 
-    public Integer getIdBilletera() {
-        return idBilletera;
+    public Integer getId_Cliente() {
+        return id_Cliente;
     }
 
-    public void setIdBilletera(Integer idBilletera) {
-        this.idBilletera = idBilletera;
+    public void setId_Cliente(Integer id_Cliente) {
+        this.id_Cliente = id_Cliente;
+    }
+
+    public Integer getId_Prestador() {
+        return id_Prestador;
+    }
+
+    public void setId_Prestador(Integer id_Prestador) {
+        this.id_Prestador = id_Prestador;
+    }
+
+    public Integer getId_Billetera() {
+        return id_Billetera;
+    }
+
+    public void setId_Billetera(Integer id_Billetera) {
+        this.id_Billetera = id_Billetera;
     }
 
 
@@ -47,11 +70,11 @@ public class Billetera {
 
     }
 
-    public void updateBilletera(){
+    public void actualizarBilletera(){
 
     }
 
-    public void deleteBilletera(int id){
+    public void eliminarBilletera(int id){
 
     }
 }

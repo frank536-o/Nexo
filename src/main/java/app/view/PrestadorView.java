@@ -23,6 +23,10 @@ public class PrestadorView {
     public void crearUsuarioPrestador() {
 
         int id = FormTypeValidator.intValidator("Ingrese el id del Prestador");
+        if (prestadorService.selectPrestadorById(id) != null) {
+            System.out.println("Error: Ya existe un prestador registrado con el ID " + id + ". Intente con otro."+ "\n");
+            return;
+        }
         String docType = SetDocumentType.getDocType();
         String name = FormTypeValidator.stringValidator("Ingrese el nombre del Prestador");
         String lastName = FormTypeValidator.stringValidator("Ingrese el apellido del Prestador");
@@ -40,6 +44,10 @@ public class PrestadorView {
                 descripPerfil, 0);
 
         Billetera billetera = billeteraService.createBilleteraPrestador( id, 0.0);
+        if (billetera != null && billetera.getId_Billetera() != null) {
+            System.out.println("Billetera activada. Tu número único de ID Billetera es: " + billetera.getId_Billetera());
+            System.out.println("Saldo inicial: $" + billetera.getSaldo());
+        }
 
     }
 
@@ -94,7 +102,8 @@ public class PrestadorView {
                 + "Dirección: " + prestador.getAddress() + "\n "
                 + "Contraseña: " + prestador.getPassword() + "\n "
                 + "Fecha de Nacimiento: " + prestador.getBirthdate() + "\n "
-                + "Role: " + prestador.getRole() + "\n ");
+                + "Role: " + prestador.getRole() + "\n "
+                + "Descripción del Prestador: " + prestador.getDescripPerfil() + "\n"  );
     }
         public void eliminarUsuarioPrestador () {
             int id = FormTypeValidator.intValidator("Ingrese el Id del prestador a eliminar");

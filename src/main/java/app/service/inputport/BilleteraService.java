@@ -6,14 +6,16 @@ import java.util.List;
 
 public interface BilleteraService {
 
-    public Billetera createBilletera(Integer idBilletera, Integer idOwner, Double saldo) ;
+    public Billetera createBilletera(Integer idBilletera,Double saldo);
+
     public Billetera selectBilleteraById(int id);
     public List<Billetera> selectAllBilletera();
-    public Billetera updateBilletera(Integer idBilletera, Double saldo) ;
-    public void deletedBilleteraById(int id);
+    public Billetera actualizarBilletera(Integer idBilletera, Double saldo) ;
+    public void eliminarBilleteraById(int id);
 
-    Billetera createBilleteraCliente(int id, double v);
+    Billetera createBilleteraCliente(Integer idCliente, double Saldo);
 
-    Billetera createBilleteraPrestador(int id, double v);
+    Billetera createBilleteraPrestador(Integer idPrestador, double Saldo);
+
 }
 
